@@ -1,0 +1,17 @@
+<div class="grid p-fluid">
+    <div>
+            <div class="flex justify-content-between mb-6">
+                <p-galleria
+                    [(value)]="images"
+                    [autoPlay]="false"
+                    [responsiveOptions]="responsiveOptions"
+                    [containerStyle]="{ 'width': '100vw', 'height': '100vh' }"
+                    [showThumbnails]="false"
+                    >
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+                </ng-template>
+                </p-galleria>
+            </div>
+    </div>
+</div>

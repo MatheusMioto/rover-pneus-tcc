@@ -1,0 +1,44 @@
+<div class="grid">
+	<div class="col-12 md:col-6">
+		<div class="card p-fluid">
+
+            <div >
+                <h1>Pagamento</h1>
+                <p><strong>Total do pedido: {{ total | currency: 'BRL' : 'symbol' : '1.2-2' }}</strong></p>
+
+                <form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+                  <div class="field">
+                    <label for="paymentMethod">Método de Pagamento </label>
+                    <p-dropdown
+                      formControlName="paymentMethod"
+                      [options]="paymentOptions"
+                      placeholder="Selecione um método"
+                      (onChange)="onPaymentMethodChange(paymentForm.get('paymentMethod')?.value)">
+                    </p-dropdown>
+                  </div>
+                  <div field *ngIf="paymentForm.get('paymentMethod')?.value === 'Cartão de Crédito' || paymentForm.get('paymentMethod')?.value === 'Cartão de Débito'">
+                    <div class="field">
+                      <label for="cardNumber">Número do Cartão</label>
+                      <input pInputText formControlName="cardNumber" placeholder="Número do Cartão (16 dígitos)">
+                    </div>
+                    <div class="field">
+                      <label for="cardName">Nome no Cartão</label>
+                      <input pInputText formControlName="cardName" placeholder="Nome completo">
+                    </div>
+                    <div class="field">
+                      <label for="cardExpiry">Validade (MM/AA)</label>
+                      <input pInputText formControlName="cardExpiry" placeholder="MM/AA">
+                    </div>
+                    <div class="field">
+                      <label for="cardCvv">CVV</label>
+                      <input pInputText formControlName="cardCvv" placeholder="CVV (3 dígitos)">
+                    </div>
+                  </div>
+
+                  <button pButton type="submit" label="Finalizar Pagamento" class="p-button-success" [disabled]="paymentForm.invalid"></button>
+                </form>
+              </div>
+
+        </div>
+    </div>
+</div>

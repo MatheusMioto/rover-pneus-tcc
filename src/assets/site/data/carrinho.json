@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "datacompra": "10/11/2024",
+            "valortotal": 659.90,
+            "itens": [
+                {
+                    "idproduto": 1000,
+                    "price": 659.90,
+                    "quantity": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="/">
+        <img src="assets/layout/images/galleria/roverlogo.png" alt="logo" />
+    </a>
+
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+        <i class="pi pi-bars"></i>
+    </button>
+
+    <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button"
+        (click)="layoutService.showProfileSidebar()">
+        <i class="pi pi-ellipsis-v"></i>
+    </button>
+
+    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{
+            'layout-topbar-menu-mobile-active':
+                layoutService.state.profileSidebarVisible
+        }">
+        <p-button (onClick)="op.toggle($event)" icon="pi pi-fw pi-shopping-bag" label="{{ quantity }}"
+            severity="help" />
+        <p-overlayPanel #op>
+            <div class="flex flex-column gap-3 w-45rem">
+                <div class="cart">
+                    <h5>Carrinho de Compras</h5>
+                    <p-table [value]="cartItems$ | async" [paginator]="true" [rows]="5">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Produto</th>
+                                <th>Quantidade</th>
+                                <th>Preço Unitário</th>
+                                <th>Total</th>
+                                <th>Ações</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-item>
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.quantity }}</td>
+
+
+                                <td>
+                                    {{
+                                    item.price
+                                    | currency
+                                    : "BRL"
+                                    : "symbol"
+                                    : "1.2-2"
+                                    }}
+                                </td>
+                                <td>
+                                    {{
+                                    item.price * item.quantity
+                                    | currency
+                                    : "BRL"
+                                    : "symbol"
+                                    : "1.2-2"
+                                    }}
+                                </td>
+                                <td>
+                                    <p-button icon="pi pi-fw pi-plus" [rounded]="true" [text]="true" size="small"
+                                        severity="secondary " (click)="addToCart(item)" />
+                                    <p-button icon="pi pi-fw pi-minus" [rounded]="true" [text]="true" size="small"
+                                        severity="secondary " (click)="minusToCart(item)" />
+                                </td>
+                                <td>
+                                    <p-button icon="pi pi-fw pi-trash" [rounded]="true" [text]="true" size="small"
+                                        severity="danger " (click)="removeFromCart(item)" />
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="footer">
+                            <tr>
+                                <td colspan="3" style="text-align: right">
+                                    <strong>Total:</strong>
+                                </td>
+                                <td>
+                                    {{
+                                    total
+                                    | currency
+                                    : "BRL"
+                                    : "symbol"
+                                    : "1.2-2"
+                                    }}
+                                </td>
+                                <td></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+                <p-button label="Finalizar a Compra" icon="pi pi-wallet" (click)="pagamento(op, $event)" />
+            </div>
+        </p-overlayPanel>
+    </div>
+
+
+
+
+    <div class="layout-menu-icon" *ngIf="!isLoggedIn; else loggedInTemplate">
+
+        <div #topbarmenu class="layout-menu-icon" [ngClass]="{
+            'layout-topbar-menu-mobile-active':
+                layoutService.state.profileSidebarVisible
+        }">
+
+            <p-button (onClick)="ur.toggle($event).lg.toggle($event).menu.toggle($event)" icon="pi pi-user"
+                severity="help" />
+
+            <p-overlayPanel #ur #lg>
+                <a style="color: black; font-size: medium;" routerLink="/login">Entre </a>
+                <a style="color: black;">ou</a>
+                <a style="color: black; font-size: medium; " routerLink="/register"> Cadastre-se</a>
+            </p-overlayPanel>
+        </div>
+
+    </div>
+
+    <ng-template #loggedInTemplate>
+
+
+        <div #topbarmenu class="layout-menu-icon" [ngClass]="{
+                'layout-topbar-menu-mobile-active':
+                    layoutService.state.profileSidebarVisible
+            }">
+            <p-button (onClick)="ur.toggle($event).lg.toggle($event).menu.toggle($event)" icon="pi pi-user"
+                severity="help" />
+
+            <p-overlayPanel #ur #lg >
+                <button pButton pRipple label="Sair" (click)="authService.logout()"></button>
+            </p-overlayPanel>
+        </div>
+
+
+    </ng-template>
+
+
+
+</div>

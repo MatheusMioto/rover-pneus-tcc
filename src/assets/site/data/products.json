@@ -1,0 +1,76 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"code": "f230fh0g3",
+			"name": "Pneu Pirelli Aro 16 Scorpion Verde All Season 235/60R16 100H",
+			"description": "Original Cherry Tiggo / Hyunday Tucson / Kia Sportage / Mitsubishi ASX / Suzuki Grand Vitara",
+			"image": "1000-1.jpg",
+			"price": 659.90,
+			"category": "suv",
+			"quantity": 24,
+			"inventoryStatus": "INSTOCK",
+			"rating": 5,
+            "aro": 16,
+            "marca": "Pirelli"
+		},
+        {
+			"id": "1001",
+			"code": "f230fh0g4",
+			"name": "Pneu Westlake Aro 15 SL369 205/65R15 94H",
+			"description": "",
+			"image": "1001.jpg",
+			"price": 366.94,
+			"category": "caminhonetes",
+			"quantity": 20,
+			"inventoryStatus": "INSTOCK",
+			"rating": 3,
+            "aro": 15,
+            "marca": "Westlake"
+		},
+        {
+			"id": "1002",
+			"code": "f230fh0g5",
+			"name": "Jogo 4 Pneus Dynamo Aro 13 MH01 175/70R13 82T",
+			"description": "",
+			"image": "1002.jpg",
+			"price": 1019.59,
+			"category": "veiculo eletrico",
+			"quantity": 20,
+			"inventoryStatus": "INSTOCK",
+			"rating": 2,
+            "aro": 13,
+            "marca": "Dynamo"
+		},
+        {
+			"id": "1003",
+			"code": "f230fh0g6",
+			"name": "Pneu Aro 15 Continental 205/60R15 91V ContiPremiumContact 2",
+			"description": "O pneu versátil e perfeito, combinando desempenho com segurança. Excelente performance em pistas de arrancada para Categorias DTB/ STT.",
+			"image": "1003.jpg",
+			"price": 449.90,
+			"category": "veiculo de competicao",
+			"quantity": 20,
+			"inventoryStatus": "INSTOCK",
+			"rating": 1,
+            "aro": 15,
+            "marca": "Continental"
+		},
+        {
+			"id": "1004",
+			"code": "f230fh0g7",
+			"name": "Pneu Itaro Aro 15 IT203 185/60R15 84H",
+			"description": "O pneu Itaro IT203 é o modelo ideal para quem busca pelo melhor custo-benefício. Com baixa resistência a rolagem, o pneu é um forte aliado da economia de combustível",
+			"image": "1004.jpg",
+			"price": 269.90,
+			"category": "veiculo de passageiros",
+			"quantity": 20,
+			"inventoryStatus": "INSTOCK",
+			"rating": 4,
+            "aro": 15,
+            "marca": "Itaro"
+		}
+
+
+	]
+}

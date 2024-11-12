@@ -1,0 +1,15 @@
+.payment {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    text-align: center;
+  }
