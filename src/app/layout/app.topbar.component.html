@@ -17,7 +17,7 @@
                 layoutService.state.profileSidebarVisible
         }">
         <p-button (onClick)="op.toggle($event)" icon="pi pi-fw pi-shopping-bag" label="{{ quantity }}"
-            severity="help" />
+             />
         <p-overlayPanel #op>
             <div class="flex flex-column gap-3 w-45rem">
                 <div class="cart">
@@ -36,7 +36,6 @@
                             <tr>
                                 <td>{{ item.name }}</td>
                                 <td>{{ item.quantity }}</td>
-
 
                                 <td>
                                     {{
@@ -87,51 +86,49 @@
                         </ng-template>
                     </p-table>
                 </div>
-                <p-button label="Finalizar a Compra" icon="pi pi-wallet" (click)="pagamento(op, $event)" />
+                <p-button  label="Finalizar a Compra" severity="success" icon="pi pi-wallet" (click)="pagamento(op, $event)" />
             </div>
         </p-overlayPanel>
     </div>
 
-
-
-
-    <div class="layout-menu-icon" *ngIf="!isLoggedIn; else loggedInTemplate">
-
-        <div #topbarmenu class="layout-menu-icon" [ngClass]="{
-            'layout-topbar-menu-mobile-active':
-                layoutService.state.profileSidebarVisible
-        }">
-
-            <p-button (onClick)="ur.toggle($event).lg.toggle($event).menu.toggle($event)" icon="pi pi-user"
-                severity="help" />
-
-            <p-overlayPanel #ur #lg>
-                <a style="color: black; font-size: medium;" routerLink="/login">Entre </a>
-                <a style="color: black;">ou</a>
-                <a style="color: black; font-size: medium; " routerLink="/register"> Cadastre-se</a>
-            </p-overlayPanel>
-        </div>
-
+    <div #topbarmenu class="layout-menu-icon" [ngClass]="{
+        'layout-topbar-menu-mobile-active':
+            layoutService.state.profileSidebarVisible
+    }">
+        <p-button icon="pi pi-phone" routerLink="./pages/suporte"/>
     </div>
 
-    <ng-template #loggedInTemplate>
-
-
+    <div class="layout-menu-icon" *ngIf="!isLoggedIn; else loggedInTemplate">
         <div #topbarmenu class="layout-menu-icon" [ngClass]="{
                 'layout-topbar-menu-mobile-active':
                     layoutService.state.profileSidebarVisible
             }">
-            <p-button (onClick)="ur.toggle($event).lg.toggle($event).menu.toggle($event)" icon="pi pi-user"
-                severity="help" />
+            <p-button (onClick)="
+                    ur.toggle($event).lg.toggle($event).menu.toggle($event)
+                " icon="pi pi-user"/>
 
-            <p-overlayPanel #ur #lg >
+            <p-overlayPanel #ur #lg>
+                <a style="color: black; font-size: medium" routerLink="/login">Entre
+                </a>
+                <a style="color: black">ou</a>
+                <a style="color: black; font-size: medium" routerLink="/register">
+                    Cadastre-se</a>
+            </p-overlayPanel>
+        </div>
+    </div>
+
+    <ng-template #loggedInTemplate>
+        <div #topbarmenu class="layout-menu-icon" [ngClass]="{
+                'layout-topbar-menu-mobile-active':
+                    layoutService.state.profileSidebarVisible
+            }">
+            <p-button (onClick)="
+                    ur.toggle($event).lg.toggle($event).menu.toggle($event)
+                " icon="pi pi-user"  />
+
+            <p-overlayPanel #ur #lg>
                 <button pButton pRipple label="Sair" (click)="authService.logout()"></button>
             </p-overlayPanel>
         </div>
-
-
     </ng-template>
-
-
-
 </div>

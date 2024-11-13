@@ -1,0 +1,34 @@
+<div class="grid">
+    <div class="col-12">
+            <p-card style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"
+                header="ATENDIMENTO AO CLIENTE">
+                <p class="m-0">
+                    Dúvidas? Entre em contato com nossos canais de atendimento.
+                </p>
+                <p class="m-3">
+                    Nosso atendimento é de segunda à sexta, das 08:00 às 20:00, e aos sábados, das 09:00 às 15:00 -
+                    Horário de Brasília (UTC -3). Não atendemos aos domingos e em feriados nacionais.
+                </p>
+            </p-card>
+        <div class="card flex justify-content-start" class="flex gap-4 mt-1">
+
+            <p-card header="Telefone SAC" subheader="Entre em contato:" class="flex gap-3 mt-4" >
+                <ng-template pTemplate="header">
+                    <img alt="Atendimento imagem" src="/assets/layout/images/galleria/atendimento.svg" />
+                </ng-template>
+                <p style="color: blue;">
+                    (69) 3530-4293
+                </p>
+            </p-card>
+
+            <p-card header="Email" subheader="Nos envie um e-mail:" class="flex gap-4 mt-4">
+                <ng-template pTemplate="header">
+                    <img alt="Atendimento imagem" src="/assets/layout/images/galleria/atendimento.svg" />
+                </ng-template>
+                <ng-template pTemplate="footer">
+                        <p-button label="ENVIAR EMAIL" class="w-full" styleClass="w-full" routerLink="/pages/emailsup" />
+                </ng-template>
+            </p-card>
+        </div>
+    </div>
+</div>

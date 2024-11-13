@@ -11,7 +11,6 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
                 children: [
                     { path: '', loadChildren: () => import('./site/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
                     { path: 'pages', loadChildren: () => import('./site/components/pages/pages.module').then(m => m.PagesModule) },
-
                 ]
             },
             { path: 'register', loadChildren: () => import('./site/components/auth/register/register.module').then(m => m.RegisterModule) },
